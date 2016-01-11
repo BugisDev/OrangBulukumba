@@ -1,0 +1,60 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<title>{{ title }}</title>
+</head>
+<body>
+	<center>
+		<table width=80%>
+    <tbody>
+    <tr>
+			<td><a href="/"><h2>OrangBulukumba.com</h2></a></td>
+			<td style="text-align: right;">
+        <h2><a href="/logout/">LOGOUT</a></h2>
+      </td>
+    </tr>
+        <tr>
+            <td colspan="2">
+            <form action="" method="POST">
+                <p>
+                  Title:</br>
+    							{{ form.hidden_tag() }}
+                  {{ form.title }}
+    							{% for error in form.title.errors %}
+    	            {% if error %}<i style="color:red">{{error}}</i>{% endif %}
+    	            {% endfor %}
+                </p>
+								<p>
+									Type:</br>
+									{{ form.post_type }}
+									{% for error in form.post_type.errors %}
+    	            {% if error %}<i style="color:red">{{error}}</i>{% endif %}
+    	            {% endfor %}
+								</p>
+                <p>
+                  Konten:</br>
+                  {{ form.content(style="width: 400px; height: 100px;") }}
+    							{% for error in form.content.errors %}
+    	            {% if error %}<i style="color:red">{{error}}</i>{% endif %}
+    	            {% endfor %}
+                </p>
+                <input type="submit" value="SIMPAN">
+            </form>
+    					{% with messages = get_flashed_messages() %}
+    					  {% if messages %}
+    					  {% for message in messages %}
+    					      <i style="color:green">{{ message }}</i>
+    					    {% endfor %}
+    					  {% endif %}
+    					{% endwith %}
+    					{% block body %}{% endblock %}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+        </tr>
+        </tbody>
+    		</table>
+    	</center>
+    </body>
+    </html>

@@ -1,0 +1,52 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<title>{{ title }}</title>
+</head>
+<body>
+	<center>
+		<table width=60%>
+    <tbody>
+    <tr>
+			<td><a href="/"><h2>OrangBulukumba.com</h2></a></td>
+			<td style="text-align: right;"><h2>
+				{% if current_user.is_authenticated %}
+					<a href="/profile">{{ current_user.username}}</a>
+				{% else %}
+				  <a href="/login/">LOGIN</a>
+				{% endif %}
+			</h2></td>
+    </tr>
+
+		{% for post in posts %}
+			<tr bgcolor="#eee">
+	        <td colspan="2">
+					</br>
+						<h3>{{ post.title }}</h3><hr>
+						<a href="{{ post.user.username }}">{{ post.user.full_name }}</a> | {{ post.createdtime }}
+						<br>Votes: {{ vote.query.filter_by(id_post = post.id).count() }} |  Comments: {{ comment.query.filter_by(id_post=post.id ).count()}} | Type: {{ post.post_type.post_type }}</br>
+						<p>
+								{{ post.content }}
+						</p>
+						{% if not vote.query.filter_by(id_post=post.id, id_user=current_user.id).first() %}
+						<form method="POST" action="">
+						  <input type="hidden" name="vote" value={{ post.id }} />
+						  <input type="submit" value="VOTE" />
+						</form>
+						{% else %}
+						<i>Kamu telah memberikan vote ke post ini</i></br>
+						{% endif %}
+						<a href="/post/{{post.slug}}"><input type="submit" value="COMMENT"/></a>
+
+					</td>
+	    </tr>
+		{% endfor %}
+
+    <tr>
+        <td colspan="2"> </td>
+    </tr>
+    </tbody>
+		</table>
+	</center>
+</body>
+</html>

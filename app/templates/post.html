@@ -1,0 +1,64 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<title>{{ title }}</title>
+</head>
+<body>
+	<center>
+		<table width=60%>
+    <tbody>
+    <tr>
+			<td><a href="/"><h2>OrangBulukumba.com</h2></a></td>
+			<td style="text-align: right;"><h2>
+				{% if current_user.is_authenticated %}
+					<a href="/profile">{{ current_user.username}}</a>
+				{% else %}
+				  <a href="/login/">LOGIN</a>
+				{% endif %}
+			</h2></td>
+    </tr>
+		<tr bgcolor="#eee">
+        <td colspan="2">
+					<h3>{{ post.title }}</h3><hr>
+					{{ post.user.full_name }} | {{ post.createdtime }}
+					<p>
+							{{ post.content }}
+					</p>
+
+					{% if not vote.query.filter_by(id_post=post.id, id_user=current_user.id).first() %}
+					<form method="POST" action="">
+						<input type="hidden" name="vote" value={{ post.id }} />
+						<input type="submit" value="VOTE" />
+					</form>
+					{% else %}
+					<i>Kamu telah memberikan vote ke post ini</i></br>
+					{% endif %}
+
+          <hr>
+					<p>Votes: {{ vote.query.filter_by(id_post = post.id).count() }}</p>
+          <p>
+            {% for a in comments.query.filter_by(id_post=post.id).all() %}
+            <p>{{ a.user.full_name }}: {{ a.desc }}</p>
+            {% endfor %}
+
+              Komentar:</br>
+        	<form action="" method="POST">
+            {{ form.desc(style="width: 100%;") }}
+            {% for error in form.desc.errors %}
+	            {% if error %}<i style="color:red">{{error}}</i>{% endif %}
+	          {% endfor %}
+            {{ form.hidden_tag() }}
+            </br>
+            <input type="submit" value="Komentar">
+          </form>
+          </p>
+				</td>
+    </tr>
+    <tr>
+        <td colspan="2"> </td>
+    </tr>
+    </tbody>
+		</table>
+	</center>
+</body>
+</html>

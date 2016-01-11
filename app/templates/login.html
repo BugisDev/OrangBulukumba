@@ -1,0 +1,51 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<title>{{ title }}</title>
+</head>
+<body>
+	<center>
+		<table width=60%>
+    <tbody>
+    <tr>
+			<td><h2>LOGIN:</h2></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+        <form action="" method="POST">
+            <p>
+              Username:</br>
+							{{ form.hidden_tag() }}
+              {{ form.username }}
+							{% for error in form.username.errors %}
+	            {% if error %}<i style="color:red">{{error}}</i>{% endif %}
+	            {% endfor %}
+            </p>
+            <p>
+              Password:</br>
+              {{ form.password }}
+							{% for error in form.password.errors %}
+	            {% if error %}<i style="color:red">{{error}}</i>{% endif %}
+	            {% endfor %}
+            </p>
+            <input type="submit" value="LOGIN">
+        </form>
+					{% with messages = get_flashed_messages() %}
+					  {% if messages %}
+					  {% for message in messages %}
+					      <i style="color:green">{{ message }}</i>
+					    {% endfor %}
+					  {% endif %}
+					{% endwith %}
+					{% block body %}{% endblock %}
+				<p>Tidak punya akun? <a href="/register/">REGISTER</a></p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"></td>
+    </tr>
+    </tbody>
+		</table>
+	</center>
+</body>
+</html>
