@@ -40,7 +40,7 @@ class RegisterForm(Form):
             return False
 
         if User.query.filter_by(username=self.username.data).first():
-            self.username.errors.append("Username Telah bisa digunakan")
+            self.username.errors.append("Username Telah digunakan")
             return False
 
         if User.query.filte_by(email=self.email.data).first():
