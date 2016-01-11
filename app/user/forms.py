@@ -34,6 +34,20 @@ class RegisterForm(Form):
                                                      validators.EqualTo('confirm', message='Password harus sama')])
     confirm = PasswordField('Ulangi Password')
 
+    def validate(self):
+        rv = Form.validate(self)
+        if not rv:
+            return False
+
+        if User.query.filter_by(username=self.username.data).first():
+            self.username.errors.append("Username Telah bisa digunakan")
+            return False
+
+        if User.query.filte_by(email=self.email.data).first():
+            self.email.errors.append("Email yang anda masukkan telah terdaftar")
+            return False
+        return True
+
 class CreatePost(Form):
     title = StringField('title', validators=[validators.Required('Judul tidak boleh kosong')])
     content = TextAreaField('Content', validators=[validators.Required('Konten tidak boleh kosong'),
