@@ -43,7 +43,7 @@ class RegisterForm(Form):
             self.username.errors.append("Username Telah digunakan")
             return False
 
-        if User.query.filte_by(email=self.email.data).first():
+        if User.query.filter_by(email=self.email.data).first():
             self.email.errors.append("Email yang anda masukkan telah terdaftar")
             return False
         return True
