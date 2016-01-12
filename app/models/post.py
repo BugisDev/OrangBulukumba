@@ -18,7 +18,9 @@ class Post_type(db.Model):
     __tablename__ = 'post_type'
     id = db.Column(db.Integer, primary_key=True)
     post_type = db.Column(db.VARCHAR(10))
-    created_by = db.Column(db.VARCHAR(45))
+    created_by = db.Column(db.Integer, db.ForeignKey('user.id'))
+    user = db.relationship('User',
+        backref=db.backref('Post_type', lazy='dynamic'))
     description = db.Column(db.VARCHAR(45))
 
 class Post(db.Model):
