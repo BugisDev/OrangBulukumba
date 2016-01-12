@@ -1,8 +1,8 @@
 import datetime
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from app.core.db import db
-from .models import User
-from app.post.models import Post, Post_type, Vote, Comment
+from app.models.user import User
+from app.models.post import Post, Post_type, Vote, Comment
 from .forms import RegisterForm, LoginForm, CreatePost
 from flask.ext.login import login_user, logout_user, login_required, current_user
 

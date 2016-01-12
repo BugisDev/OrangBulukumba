@@ -2,8 +2,8 @@ from flask_wtf import Form
 from wtforms import StringField, PasswordField, TextAreaField, SelectField, validators
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
 
-from .models import User
-from app.post.models import Post_type
+from app.models.user import User
+from app.models.post import Post_type
 from flask.ext.bcrypt import check_password_hash
 
 class LoginForm(Form):

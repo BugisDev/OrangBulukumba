@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, abort
-from .models import Post, Comment, Vote
+from app.models.post import Post, Comment, Vote
 from .forms import CommentForm
 from app.core.db import db
 from flask.ext.login import current_user, login_required

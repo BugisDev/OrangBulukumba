@@ -1,6 +1,6 @@
 import datetime
 from app.core.db import db
-from app.user.models import User
+from app.models.user import User
 from unicodedata import normalize
 
 def slugfy(text, encoding=None,
