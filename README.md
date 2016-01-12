@@ -11,6 +11,9 @@ cd OrangBulukumba
 virtualenv env
 ```
 - In this app, i use mysql as my database. So, you must create a database with name orangbulukumba.com. I set it in Config in my app and you can cange it
+```
+>create database `orangbulukumba.com`
+```
 - Activate your environment and install requrements package to run this app
 ```
 source env/bin/activate
