@@ -1,31 +1,33 @@
-##How to run OrangBulukumba app in yur Comp.
+##CARA MENJALANKAN APLIKASI ORANGBULUKUMBA DI KOMPUTER ANDA
 
-#Prepare some tools
-- clone this repo
+#Mempersiapkan alat untuk menjalankan aplikasi
+- clone repository orangbulukumba
 ```
 git clone https://github.com/BugisDev/OrangBulukumba
 ```
-- Open OrangBulukumba directory and make virtualenvironment in it. in this case i use (env) as my virtual environment, You can use your name or others.
+- Buka folder orangbulukumba dan buat virtual environment di dalam folder tersebut. Disini saya membuat environment dengan nama (env), Anda dapat membuat dengan nama yang berbeda sesuai keinginan anda.
 ```
 cd OrangBulukumba
 virtualenv env
 ```
-- In this app, i use mysql as my database. So, you must create a database with name orangbulukumba.com. I set it in Config in my app and you can cange it
+- Pada aplikasi ini, saya menggunakan MYSQL-server sebagai database. Jadi, Anda harus membuat database dengan nama `orangbulukumba.com`. Nama database dapat dirubah pada file config/base.py, jadi anda dapat merubah sesuai keinginan anda.
 ```
+>mysql -u root -p
+[enter your password db]
 >create database `orangbulukumba.com`
 ```
-- Activate your environment and install requrements package to run this app
+- Aktifkan virtual environment yang telah anda buat sebelumnya, kemudian install paket yang dibutuhkan untuk membuat aplikasi ini
 ```
 source env/bin/activate
 pip install -r requirements.txt
 ```
-- Use migrate to Migrate models in this app to Your Mysql-server
+- Gunakan Flask-migrate untuk melakukan migrasi dari modeling yang ada pada aplikasi ini ke database yang telah anda buat sebelumnya.
 ```
 python manage.py db init
 python manage.py db migrate
 python manage.py db upgrade
 ```
-- I have default values in database that is in User_type column and Post_type Column. So you must add it in your mysql-server
+- Pada aplikasi ini, terdapat Data default yang harus ada untuk menjalankan aplikasi ini, Jadi anda harus menambahkan ke database.
 ```
 >INSERT INTO `user_type` (`id`, `type`) VALUES
 >(1, 'Super User'),
@@ -42,7 +44,7 @@ python manage.py db upgrade
 >(4, 'SARAN', NULL, NULL);
 ```
 
-# You can Run this app now
+# Aplikasi OrangBulukumba siap dijalankan
 ```
 python manage.py run
 ```
