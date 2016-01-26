@@ -1,0 +1,46 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<title>{{ title }}</title>
+</head>
+<body>
+	<center>
+		<table width=60%>
+    <tbody>
+    <tr>
+			<td><a href="/"><h2>OrangBulukumba.com</h2></a></td>
+			<td style="text-align: right;"><h2>
+				  <a href="/logout/">LOGOUT</a>
+			</h2></td>
+    </tr>
+		<tr bgcolor="#eee">
+        <td colspan="2">
+					<p>
+						<h3><a href="/create_post/">Create POST</a></h3>
+					</p>
+					<p>
+          <form action="" method="POST" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <img src="/static/img/user/{{ picture }}" / style="width:150px; border-radius:50%; border-style:groove"></br></br>
+            Ganti foto anda: {{ form.picture }}</br></br>
+            NAMA:     {{ form.full_name(value=user.full_name)}}</br></br>
+            USERNAME: {{ form.username(value=user.username) }}</br></br>
+            EMAIL :   {{ form.email(value=user.email) }}</br></br>
+            BIO:      {{ form.bio(value=user.bio) }}</br></br>
+            <input type="submit" value="SIMPAN">
+          </form>
+          </p>
+          <p>
+            <a href="edit_profile"><input type="submit" value="UPDATE PROFILE"></a>
+          </p>
+
+				</td>
+    </tr>
+    <tr>
+        <td colspan="2"> </td>
+    </tr>
+    </tbody>
+		</table>
+	</center>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<title>{{ title }}</title>
+</head>
+<body>
+	<center>
+		<table width=60%>
+    <tbody>
+    <tr>
+			<td><a href="/"><h2>OrangBulukumba.com</h2></a></td>
+			<td style="text-align: right;"><h2>
+			{% if not current_user.is_authenticated %}
+				  <a href="/login/"><input type="submit" value="LOGIN"></a>
+			{% else %}
+					<a href="{{ url_for('user.my_profile')}}"><input type="submit" value="{{current_user.username}}"></a>
+			{% endif %}
+			</td>
+    </tr>
+    {% block content %}
+
+    {% endblock %}
+  </tbody>
+  </table>
+</br><strong>© Copyright 2016. {BugisDev/}</strong>
+</center>
+</body>
+</html>

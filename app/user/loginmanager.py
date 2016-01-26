@@ -1,5 +1,5 @@
 from flask.ext.login import LoginManager
-from app.models.user import User
+from .models import User
 
 login_manager = LoginManager()
 
@@ -8,3 +8,4 @@ def load_user(user_id):
     return User.query.get(user_id)
 
 login_manager.login_view = 'user.login'
+login_manager.login_message = 'Login untuk mengakses link ini'

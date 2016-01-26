@@ -4,6 +4,7 @@ Flask-Login==0.3.2
 Flask-Migrate==1.6.0
 Flask-SQLAlchemy==2.1
 Flask-Script==2.0.5
+Flask-Uploads==0.2.0
 Flask-WTF==0.12
 Jinja2==2.8
 Mako==1.0.3
@@ -20,4 +21,5 @@ itsdangerous==0.24
 pycparser==2.14
 python-editor==0.5
 six==1.10.0
+slugify==0.0.1
 wsgiref==0.1.2

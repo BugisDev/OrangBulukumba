@@ -1,0 +1,47 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<title>{{ title }}</title>
+</head>
+<body>
+	<center>
+		<table width=60%>
+    <tbody>
+    <tr>
+			<td><a href="/"><h2>OrangBulukumba.com</h2></a></td>
+			<td style="text-align: right;"><h2>
+				<a href="/logout/">LOGOUT</a>
+			</h2></td>
+    </tr>
+		<tr bgcolor="#eee">
+        <td colspan="2">
+					<center>
+					<img src="/static/img/user/{{picture}}" / style="width:150px; border-radius:50%; border-style:groove"></br></br>
+					<p>
+            {{ user.full_name }}</br>
+          </p>
+
+					<p>
+						<center>
+						{% for post in posts %}
+							<tr bgcolor="#eee">
+									<td colspan="2">
+									</br>
+										<h3><a href="/post/{{post.slug}}">{{ post.title }}</a></h3>
+									</td>
+							</tr>
+						{% endfor %}
+					</center>
+						<hr>
+					</p>
+				</td>
+			</center>
+    </tr>
+    <tr>
+        <td colspan="2"> </td>
+    </tr>
+    </tbody>
+		</table>
+	</center>
+</body>
+</html>

@@ -1,5 +1,9 @@
 """ Base Configuration """
+import os
 
+APP_DIR = os.path.abspath(os.path.dirname(__file__))
+PROJECT_ROOT = os.path.abspath(os.path.join(APP_DIR, os.pardir))
+IMG_USER = PROJECT_ROOT + '/app/static/img/user/'
 SECRET_KEY = 'changetowhateveryouwant'
 ASSETS_DEBUG = False
 CACHE_TYPE = 'simple'

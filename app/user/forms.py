@@ -1,8 +1,9 @@
 from flask_wtf import Form
+from flask_wtf.file import FileAllowed, FileField
 from wtforms import StringField, PasswordField, TextAreaField, SelectField, validators
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
-from app.models.user import User
-from app.models.post import Post_type
+from .models import User
+from app.post.models import Post_type
 from flask.ext.bcrypt import check_password_hash
 
 class LoginForm(Form):
@@ -52,3 +53,11 @@ class CreatePost(Form):
     content = TextAreaField('Content', validators=[validators.Required('Konten tidak boleh kosong'),
                                                    validators.Length(max=100, message="Konten maksimal 100 karakter")])
     post_type = SelectField('Type', coerce=int)
+
+
+class ProfileForm(Form):
+    picture = FileField('Foto', validators=[FileAllowed(['jpg', 'png', 'jpeg'], 'Images only!')])
+    full_name = StringField('Full Name', validators=[validators.Required('Nama tidak boleh kosong')])
+    username = StringField('Username', validators=[validators.Required('Username tidak boleh kosong')])
+    email = StringField('Email', validators=[validators.Required('Email tidak boleh kosong')])
+    bio = TextAreaField('Bio')

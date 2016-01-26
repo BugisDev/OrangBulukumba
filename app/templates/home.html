@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block content %}
+		{% for post in posts %}
+			<tr bgcolor="#eee">
+	        <td colspan="2">
+						<h3><a href="/post/{{post.slug}}">{{ post.title }}</a></h3><hr>
+						<a href="/user/{{ post.user.username }}">{{ post.user.full_name }}</a> | {{ post.createdtime }}
+						<p>
+								{{ post.content }}
+						</p>
+						<br>Votes: {{ post.Vote.count() }} |  Comments: {{ post.Comment.count()}} | Type: {{ post.post_type.post_type }}</br>
+					</td>
+	    </tr>
+		{% endfor %}
+{% endblock %}

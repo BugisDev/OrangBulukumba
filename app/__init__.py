@@ -2,8 +2,8 @@ from app.core.helper import create_app
 from app.core.db import db
 from app.user.loginmanager import login_manager
 from flask.ext.bcrypt import Bcrypt
-from app.models.post import *
-from app.models.user import *
+from app.post.models import *
+from app.user.models import *
 from app.user.views import user_views
 from app.post.views import post_views
 

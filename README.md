@@ -29,19 +29,19 @@ python manage.py db upgrade
 ```
 - Pada aplikasi ini, terdapat Data default yang harus ada untuk menjalankan aplikasi ini, Jadi anda harus menambahkan ke database.
 ```
-INSERT INTO `user_type` (`id`, `type`) VALUES
-(1, 'Super User'),
-(2, 'Admin'),
-(3, 'Author'),
-(4, 'Editor'),
-(5, 'User');
+>INSERT INTO `user_type` (`id`, `type`) VALUES
+>(1, 'Super User'),
+>(2, 'Admin'),
+>(3, 'Author'),
+>(4, 'Editor'),
+>(5, 'User');
 
 
-INSERT INTO `post_type` (`id`, `post_type`, `created_by`, `description`) VALUES
-(1, 'PERTANYAAN', NULL, NULL),
-(2, 'KELUHAN', NULL, NULL),
-(3, 'KRITIK', NULL, NULL),
-(4, 'SARAN', NULL, NULL);
+>INSERT INTO `post_type` (`id`, `post_type`, `created_by`, `description`) VALUES
+>(1, 'PERTANYAAN', NULL, NULL),
+>(2, 'KELUHAN', NULL, NULL),
+>(3, 'KRITIK', NULL, NULL),
+>(4, 'SARAN', NULL, NULL);
 ```
 
 # Aplikasi OrangBulukumba siap dijalankan

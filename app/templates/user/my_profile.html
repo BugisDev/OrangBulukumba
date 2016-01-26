@@ -1,0 +1,44 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<title>{{ title }}</title>
+</head>
+<body>
+	<center>
+		<table width=60%>
+    <tbody>
+    <tr>
+			<td><a href="/"><h2>OrangBulukumba.com</h2></a></td>
+			<td style="text-align: right;"><h2>
+				  <a href="/logout/">LOGOUT</a>
+			</h2></td>
+    </tr>
+		<tr bgcolor="#eee">
+        <td colspan="2">
+
+					<p>
+					<center>
+					</br>
+						<img src="/static/img/user/{{picture}}" / style="width:150px; border-radius:50%; border-style:groove"></br>
+            Nama : {{ current_user.full_name }}</br>
+            User Tipe: {{  current_user.type_user.type }}</br>
+            Username : {{ current_user.username }}</br>
+            Email : {{ current_user.email }}</br>
+            Last Login : {{ current_user.last_login}}</br>
+          </p>
+          <p>
+            <a href="edit_profile"><input type="submit" value="UPDATE PROFILE"></a></p>
+						<a href="/create_post/"><input type="submit" value="CREATE POST"></a>
+          </p>
+				</center>
+
+				</td>
+    </tr>
+    <tr>
+        <td colspan="2"> </td>
+    </tr>
+    </tbody>
+		</table>
+	</center>
+</body>
+</html>
